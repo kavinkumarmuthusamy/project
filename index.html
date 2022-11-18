@@ -42,14 +42,14 @@
                 document.querySelector(".hh").src="win.mp3";
                 setTimeout(()=>{
                 document.querySelector(".hh").src="background.mp3";
-               },5000);
+              
                 let text ="you can won the mache you will go next level or stay this level";
                   if (confirm(text) == true) {
                     //   alert("You pressed OK!");
                     window.location.href = "level2.html";
                    } else {
                        alert("You canceled!");
-                  }
+                  } },5000);
         }
         document.getElementById("non").onclick = function(){
                 alert("no it is woring");
