@@ -12,7 +12,7 @@
     <h1>LEVEL 2</h1>
     <p>A Boy caught up with a minor accident.Whom will you call now?</p>
     <div>
-    <img src="main.jpg" style="width: 1000px;height: 390px;">
+    <img src="main.jpg" style="width:60%;">
 </div>
 <div id="game2" onclick="choice()">
 <button id="no" onclick="Choice(this);"><h1>101</h1>
@@ -36,9 +36,6 @@
         document.getElementById("yes").onclick=function(){
                  document.getElementById("col").className="green";
                  document.querySelector(".l2").src="correct.mp3";
-                 setTimeout(()=>{
-                document.querySelector(".l2").src="lev.mp3";
-               },3000);
         }
         document.getElementById("non").onclick=function(){
                  document.getElementById("col").className="red";
