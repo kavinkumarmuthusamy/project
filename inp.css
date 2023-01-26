@@ -1,0 +1,21 @@
+*{
+    border: 0;
+    padding: 0;
+}
+
+.color{
+    background-color: antiquewhite;
+    color: red ;
+    text-align: center;
+ }
+ .input{
+     border: 5px solid rgb(49, 201, 228);   
+ }
+ .colorf{
+     background-color: rgb(238, 62, 62);
+     text-align: center;
+ }
+ .colort{
+     background-color: rgb(71, 253, 34);
+     text-align: center;
+ }

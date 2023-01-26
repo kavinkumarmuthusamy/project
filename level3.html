@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEVEL 3</title>
+    <link rel="stylesheet" href="level3.css">
+</head>
+<body>
+    <div id="col" class="col">
+    <h1>LEVEL 3</h1>
+    <p>If there is heavy rain and storm you can pick your friend which vechical you can choose!</p>
+    <div>
+    <img src="rain.jpg" style="width: 1000px;height: 390px;">
+</div>
+<div id="game3" onclick="choice()">
+<button id="yes" onclick="Choice(this);"><h1>car</h1>
+    <img src="car.jpg"></button>
+    <button id="non" onclick="Choice(this);"><h1>bicycle</h1>
+    <img src="cycle.jpg"></button>
+    <button id="no" onclick="Choice(this);"><h1>bike</h1>
+    <img src="bike.jpg"></button>
+    </div></div>
+    <audio autoplay class="l2" src="level3.mp3" type="audio/ogg"></audio>
+    <script>
+        window.onload = function(){
+        var a=document.getElementById(game3);
+        document.getElementById("no").onclick=function(){
+                 document.getElementById("col").className="red";
+                 document.querySelector(".l2").src="no.mp3";
+                 setTimeout(()=>{
+                document.querySelector(".l2").src="level3.mp3";
+               },5000);
+        }
+        document.getElementById("yes").onclick=function(){
+                 document.getElementById("col").className="green";
+                 document.querySelector(".l2").src="correct.mp3";
+                 setTimeout(()=>{ 
+                let text ="you can win the match you will move next level or Exit";
+                  if (confirm(text) == true) {
+                    //   alert("You pressed OK!");
+                    window.location.href = "level4.html";
+                   } else {
+                    window.location.href = "index.html";
+                  } },5000);
+        }
+        document.getElementById("non").onclick=function(){
+                 document.getElementById("col").className="red";
+                 document.querySelector(".l2").src="no.mp3";
+                 setTimeout(()=>{
+                document.querySelector(".l2").src="level3.mp3";
+               },5000);
+        }
+        }
+    </script>
+</body>
+</html>

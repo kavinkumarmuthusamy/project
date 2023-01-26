@@ -1,0 +1,36 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.col{
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+button{
+    background-color: aqua;
+    border-radius: 20px;
+    text-align:center;
+    text-size-adjust: 20px;
+}
+.red{
+    background-color: rgb(247, 59, 59);
+    color: rgb(243, 241, 241);
+    text-align: center;
+}.green{
+    background-color: rgb(10, 255, 31);
+    color: rgb(249, 250, 249);
+    text-align: center;
+}
+button img{
+    width: 150px;
+}
+#no img{
+    width: 250px;
+}
+button:hover{
+    background-color: yellowgreen;
+}

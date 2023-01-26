@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inp.css">
+    <title>LEVEL 1</title>
+</head>
+<body>
+    <div class="color" id="class">
+    <h1>level 1</h1>
+   <img src="level1.0.jpg" class="input" alt="brige" usemap="#brige" style="width:1150px;height:750px;">
+
+   <map name="brige" onclick="choice()" id="game1">
+    <area id="no" onclick="Choice(this);" href="#" coords="1000,500,650,400" shape="rect">
+    <area id="yes" onclick="Choice(this);" href="#" coords="850,330,500,300" shape="rect"> 
+    <area id="non" onclick="Choice(this);" href="#" coords="825,275,500,250" shape="rect"> 
+   </map>
+   <!-- <audio loop autoplay id="loss"  src="loss.mp3" type="audio/ogg"></audio> -->
+   <audio autoplay class="hh" src="background.mp3" type="audio/ogg"></audio>
+
+
+
+   
+    <script>
+           window.onload = function() {
+            var box=document.getElementById("game1");
+            document.getElementById("no").onclick = function(){
+                alert("no it is woring");
+                document.querySelector(".hh").src="no.mp3";
+               
+               document.getElementById("class").className="colorf";
+               setTimeout(()=>{
+                document.querySelector(".hh").src="background.mp3";
+               },3000);
+            // setInterval(codingCourse, 3000);
+        
+            }
+            document.getElementById("yes").onclick = function(){
+                document.getElementById("class").className="colort";
+                document.querySelector(".hh").src="correct.mp3";
+                setTimeout(()=>{
+                document.querySelector(".hh").src="background.mp3";
+              
+                let text ="you can win the match you will move next level or Exit";
+                  if (confirm(text) == true) {
+                    //   alert("You pressed OK!");
+                    window.location.href = "level2.html";
+                   } else {
+                       alert("You canceled!");
+                       window.location.href = "index.html";
+                  } },5000);
+        }
+        document.getElementById("non").onclick = function(){
+                alert("no it is woring");
+                document.getElementById("class").className="colorf";
+                document.querySelector(".hh").src="no.mp3";
+                setTimeout(()=>{
+                document.querySelector(".hh").src="background.mp3";
+               },3000);
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>

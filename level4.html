@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+.body {
+    overflow-x: hidden;
+    border:1px solid #0e0d0d;
+   background-image: url(red.jpg),url(road.jpg);
+   background-position-x: 318px,25px,0px,0px;
+   background-position-y:105px,0px ;
+  background-size: 20px,auto;
+   background-repeat: no-repeat, no-repeat;
+}
+.body1 {
+    overflow-x: hidden;
+    border:1px solid #0e0d0d;
+   background-image: url(yellow.jpg),url(road.jpg);
+   background-position-x: 318px,25px,0px,0px;
+   background-position-y:105px,0px ;
+  background-size: 20px,auto;
+   background-repeat: no-repeat, no-repeat;
+}
+.body2 {
+    overflow-x: hidden;
+    border:1px solid #0e0d0d;
+   background-image: url(green.jpg),url(road.jpg);
+   background-position-x: 318px,25px,0px,0px;
+   background-position-y:105px,0px ;
+  background-size: 20px,auto;
+   background-repeat: no-repeat, no-repeat;
+}
+</style>
+</head>
+<body id="body" class="body" onload="startGame()">
+<script>
+    let con=0;
+var myGamePiece;
+function startGame() {
+    myGamePiece = new component(50, 20, "red", 200, 180);
+    myGameArea.start();
+}
+let x=330;
+let y=250;
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+            this.canvas.width = 700;
+        this.canvas.height = 500;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+       
+    },
+    clear : function() {
+        console.log(this.canvas.height)
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    console.log(width,height);
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;  
+    // if(con==0&&x>=250||y>=250){
+    //     alert("it is worng signal to go get back")
+    // }  
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height); 
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }  
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+function moveleft() {
+    myGamePiece.speedX -= 1; 
+    if(myGamePiece.speedX < -1){
+        myGamePiece.speedX = -1;
+    }
+}
+
+function moveright() {
+    if(con==2){
+    myGamePiece.speedX += 1;
+    if(myGamePiece.speedX >1){
+        myGamePiece.speedX = 1;
+    } 
+    setTimeout(()=>{
+    document.body.style.backgroundColor = "green";
+      document.querySelector(".l2").src="correct.mp3";},5000);
+      setTimeout(()=>{ 
+                let text ="you can win the match you will move next level or Exit";
+                  if (confirm(text) == true) {
+                    //   alert("You pressed OK!");
+                    window.location.href = "level5.html";
+                   } else {
+                    window.location.href = "index.html";
+                  } },8000);
+    }
+    else{
+      alert("you can not follow the rules")
+      document.body.style.backgroundColor = "red";
+      document.querySelector(".l2").src="no.mp3";
+    setTimeout(()=>{ document.querySelector(".l2").src="level4.mp3";},5000);
+    }
+}
+
+setTimeout(()=>{ document.getElementById("body").className="body1";},6000);
+setTimeout(()=>{ document.getElementById("body").className="body2";con=2;
+},12000);
+
+</script>
+<div style="text-align:center;width:480px;">
+    <!-- <img id="myImage" onclick="changeImage()" src="red.jpg" width="100" height="180"> -->
+  <button onclick="moveleft()">BACK</button>
+  <button onclick="moveright()">FRONT</button><br><br>
+</div>
+<script></script>
+<audio autoplay class="l2" src="level4.mp3" type="audio/ogg"></audio>
+<p>The red color box is car or any velical .you can follow trafic signal? author wise we will alert you</p>
+</body>
+</html>
